@@ -1,6 +1,8 @@
 #include <queue>
 #include <iostream>
 using namespace std;
+
+#define sync() { ios_base::sync_with_stdio(0); cin.tie(0);}
 #define endl '\n'
 
 int V, E, K;
@@ -40,7 +42,7 @@ void dijkstra(vector<vector<edge>> graph, int start) {
 };
 
 int main() {
-    ios_base::sync_with_stdio(false);
+    sync();
 
     cin >> V >> E >> K;
     vector<vector<edge>> graph(V+1);
