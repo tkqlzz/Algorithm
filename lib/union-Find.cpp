@@ -6,7 +6,7 @@ using namespace std;
 #define endl '\n'
 
 vector<int> parent;
-vector<int> rank;
+vector<int> ranks;
 
 int find(int x) {
     if (parent[x] != x)
@@ -18,12 +18,12 @@ void merge(int a, int b) {
     a = find(a);
     b = find(b);
     if (a != b) {
-        if (rank[a] > rank[b])
+        if (ranks[a] > ranks[b])
             parent[b] = a;
         else {
             parent[a] = b;
-            if (rank[a] == rank[b])
-                rank[b]++;
+            if (ranks[a] == ranks[b])
+                ranks[b]++;
         }
     }
 }
@@ -35,8 +35,10 @@ int main() {
 
     cin >> n >> m;
 
-    parent.resize(n+1, 0);
-    rank.resize(n+1, 0);
+    parent.resize(V+1);
+    for(int i=1; i <= V; i++)
+        parent[i] = i;
+    ranks.resize(V+1, 0);
 
     for(int i=0; i<m; i++) {
         int o, a, b;
