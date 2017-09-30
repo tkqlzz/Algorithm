@@ -70,7 +70,6 @@ int main() {
 //        cout << res.second << endl;
         outFile << res.second << endl;
     }
-
     inFile.close();
     outFile.close();
 
